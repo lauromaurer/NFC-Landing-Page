@@ -16,7 +16,7 @@
       align-items: center;
       justify-content: center;
       font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #0f172a, #111827);
+      background: linear-gradient(180deg, #16223d, #111827);
       color: white;
       padding: 24px;
     }
@@ -49,7 +49,10 @@
     }
 
     .links a {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
       text-decoration: none;
       color: white;
       background: #1e293b;
@@ -63,6 +66,20 @@
       background: #334155;
       transform: translateY(-1px);
     }
+
+    .links a.primary {
+      background: #0f766e;
+    }
+
+    .links a.primary:hover {
+      background: #0d9488;
+    }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
   </style>
 </head>
 <body>
@@ -71,10 +88,49 @@
     <p>Nice to meet you.</p>
 
     <div class="links">
+      <a id="vcard-link" class="primary" href="#" download="Your-Name.vcf" aria-label="Save contact card">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+          <path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm0 4v10h16V8H4Zm3 2h5v2H7v-2Zm0 4h8v2H7v-2Zm10-4a2 2 0 1 1 0 4 2 2 0 0 1 0-4Zm-3 6c.4-1.2 1.5-2 3-2s2.6.8 3 2h-6Z" />
+        </svg>
+        Save Contact
+      </a>
       <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
       <a href="https://github.com/yourusername" target="_blank">GitHub</a>
       <a href="mailto:you@example.com">Email</a>
     </div>
   </main>
+
+  <script>
+    const contact = {
+      firstName: "Your",
+      lastName: "Name",
+      fullName: "Your Name",
+      title: "",
+      organization: "",
+      phone: "",
+      email: "you@example.com",
+      website: "https://example.com",
+      linkedin: "https://linkedin.com/in/yourprofile",
+      github: "https://github.com/yourusername"
+    };
+
+    const vCard = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      `N:${contact.lastName};${contact.firstName};;;`,
+      `FN:${contact.fullName}`,
+      contact.organization && `ORG:${contact.organization}`,
+      contact.title && `TITLE:${contact.title}`,
+      contact.phone && `TEL;TYPE=CELL:${contact.phone}`,
+      contact.email && `EMAIL:${contact.email}`,
+      contact.website && `URL:${contact.website}`,
+      contact.linkedin && `X-SOCIALPROFILE;TYPE=linkedin:${contact.linkedin}`,
+      contact.github && `X-SOCIALPROFILE;TYPE=github:${contact.github}`,
+      "END:VCARD"
+    ].filter(Boolean).join("\r\n");
+
+    const blob = new Blob([vCard], { type: "text/vcard;charset=utf-8" });
+    document.getElementById("vcard-link").href = URL.createObjectURL(blob);
+  </script>
 </body>
 </html>
