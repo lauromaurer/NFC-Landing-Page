@@ -1,0 +1,13 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Maurer;Lauro;Romeo;;
+FN:Lauro Romeo Maurer
+ORG:Hirslanden
+TITLE:Application Manager
+NOTE:Application Manager · Hirslanden\nAcademic Research Assistant · ETH Zürich\nIntern · Holcim
+TEL;TYPE=CELL:+41 75 417 64 65
+EMAIL;TYPE=INTERNET:lauro.maurer@icloud.com
+URL:https://lauromaurer.com/
+X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/lauro-maurer-9214b03a0/
+X-SOCIALPROFILE;TYPE=github:https://github.com/lauromaurer
+END:VCARD

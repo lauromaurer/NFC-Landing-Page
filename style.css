@@ -1,0 +1,137 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: #ffe478 linear-gradient(100deg, #ffe478, #896e26);
+  color: #000;
+  padding: 24px 16px;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(60, 45, 0, 0.18);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.logo {
+  width: 82px;
+  height: auto;
+  margin: 0 auto 20px;
+  display: block;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 16px;
+}
+
+.roles {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #1f1a0a;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.links a,
+.links button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background: #1e293b;
+  padding: 14px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.links button[hidden] {
+  display: none;
+}
+
+.links a:hover,
+.links button:hover {
+  background: #334155;
+  transform: translateY(-1px);
+}
+
+.links a.primary {
+  background: #0f766e;
+}
+
+.links a.primary:hover {
+  background: #0d9488;
+}
+
+.links .secondary {
+  background: transparent;
+  color: #1e293b;
+  box-shadow: inset 0 0 0 2px #1e293b;
+}
+
+.links .secondary:hover {
+  background: rgba(30, 41, 59, 0.08);
+}
+
+.links a:focus-visible,
+.links button:focus-visible {
+  outline: 3px solid #1e293b;
+  outline-offset: 3px;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .links a,
+  .links button {
+    transition: none;
+  }
+
+  .links a:hover,
+  .links button:hover {
+    transform: none;
+  }
+}
